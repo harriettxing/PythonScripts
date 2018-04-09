@@ -27,7 +27,7 @@ while True:
         while True:
             line2 = p2.stdout.read()
             if line2 != b'':
-                fileName = line2.rstrip()[1:-1]
+                fileName = line2.rstrip()
                 fileNameStr = fileName.decode("utf-8")
 #                print(fileNameStr)
                 fileList.append(fileNameStr)
