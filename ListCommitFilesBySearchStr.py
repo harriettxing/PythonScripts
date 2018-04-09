@@ -1,6 +1,7 @@
+# To run:
+# python ListCommitFilesBySearchStr.py ~search string~
+
 import subprocess, os
-
-
 from sys        import argv
 
 
