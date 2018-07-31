@@ -8,7 +8,7 @@ for dname, dirs, files in os.walk(sys.argv[1]):
                 fpath = os.path.join(dname, fname)
                 with open(fpath, 'r') as f:
                     file_content = f.read()
-                if "O_index.php" in file_content:
+                if sys.argv[2] in file_content:
                     print(f.name)
                     file_content = file_content.replace(sys.argv[2], replacement)
                     with open(fpath, "w") as f:
