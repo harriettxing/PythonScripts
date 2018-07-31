@@ -16,9 +16,3 @@ for dname, dirs, files in os.walk(sys.argv[1]):
                 f.close()
             except:
                 print("Error in file: " +f.name)
-#        fpath = os.path.join(dname, fname)
-#        with open(fpath) as f:
-#            s = f.read()
-#        s = s.replace("O_index.php", replacement)
-#        with open(fpath, "w") as f:
-#            f.write(s)
