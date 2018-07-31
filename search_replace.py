@@ -1,7 +1,7 @@
 import os, sys
 
-replacement = sys.argv[2]
-for dname, dirs, files in os.walk("/var/www/html/vice_dev"):
+replacement = sys.argv[3]
+for dname, dirs, files in os.walk(sys.argv[1]):
     for fname in files:
         if (fname[-4:] == '.php'):
             try:
@@ -10,7 +10,7 @@ for dname, dirs, files in os.walk("/var/www/html/vice_dev"):
                     file_content = f.read()
                 if "O_index.php" in file_content:
                     print(f.name)
-                    file_content = file_content.replace(sys.argv[1], replacement)
+                    file_content = file_content.replace(sys.argv[2], replacement)
                     with open(fpath, "w") as f:
                         f.write(file_content)
                 f.close()
