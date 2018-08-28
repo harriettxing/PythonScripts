@@ -18,7 +18,7 @@ while True:
 #        print(line.rstrip())
         hash = line.rstrip()[1:-1]
         hashStr = hash.decode("utf-8")
-#        print(hashStr)
+        print(hashStr)
         
         c2 = ['git', 'diff-tree', '--no-commit-id', '--name-only', '-r', hashStr]
 
@@ -27,20 +27,23 @@ while True:
         while True:
             line2 = p2.stdout.read()
             if line2 != b'':
-                fileName = line2.rstrip()
+                fileName = line2.strip()
                 fileNameStr = fileName.decode("utf-8")
-#                print(fileNameStr)
-                fileList.append(fileNameStr)
+                a = fileNameStr.split('\n')
+                #print(a)
+                fileList += a
             else:
                 break
                 
     else:
         break
 
-fileList.sort()        
+# fileList = ['aa', 'bb', 'cc', 'AA', 'BB', 'CC']
+fileList.sort() 
+fileList2 = sorted(fileList)
 i = 0
-while i < len(fileList):
-    print(fileList[i])
+while i < len(fileList2):
+    print(fileList2[i])
     i = i + 1
 
 print("Total number of files: "+ str(len(fileList)))        
